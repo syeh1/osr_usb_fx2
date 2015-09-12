@@ -33,3 +33,7 @@
 
 # text editor swap files
 *.swp
+
+tags
+cscope.out
+
