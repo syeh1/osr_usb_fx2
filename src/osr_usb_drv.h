@@ -42,10 +42,16 @@
 struct osr_usb_fx2_dev {
 	struct usb_device *udev;
 	struct usb_class_driver class;
+	unsigned char minor;
 
 	struct usb_endpoint_descriptor *int_endpoint;
 	struct urb                     *int_urb;
 	char                           *int_buffer;
+
+	struct usb_endpoint_descriptor *bulk_in_endpoint;
+	struct usb_endpoint_descriptor *bulk_out_endpoint;
+	size_t                          bulk_buffer_size;
+	char                           *bulk_buffer;
 
 	/* protected by isr_lock */
 	int        switch_val;
